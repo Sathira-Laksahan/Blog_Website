@@ -1,0 +1,52 @@
+<footer class="lama-footer">
+  <div class="lama-container">
+    <div class="lama-footer-grid">
+      
+      <!-- Left Column -->
+      <div class="lama-footer-col">
+        <div style="display: flex; align-items: center; gap: 0.75rem;">
+          <img src="/images/avatar.jpg" alt="Logo" style="width: 40px; height: 40px; border-radius: 50%; object-fit: cover;" />
+          <span style="font-size: 1.25rem; font-weight: 800;">{{ .Site.Title }}</span>
+        </div>
+        <p style="font-size: 0.9rem; line-height: 1.6; color: #64748b; margin: 0.5rem 0;">
+          Welcome to our tech and creative journal. Sharing developer guides, software engineering tutorials, artificial intelligence insights, and modern web architecture.
+        </p>
+        <div style="display: flex; gap: 1rem; font-size: 0.85rem; color: #64748b;">
+          <a href="https://facebook.com" style="color: inherit; text-decoration: none;">Facebook</a>
+          <a href="https://instagram.com" style="color: inherit; text-decoration: none;">Instagram</a>
+          <a href="https://youtube.com" style="color: inherit; text-decoration: none;">YouTube</a>
+          <a href="https://github.com" style="color: inherit; text-decoration: none;">GitHub</a>
+        </div>
+      </div>
+
+      <!-- Right Column Links -->
+      <div class="lama-footer-links-grid">
+        
+        <div>
+          <h4 class="lama-footer-heading">Quick Links</h4>
+          <ul class="lama-footer-list">
+            <li><a href="/">Homepage</a></li>
+            <li><a href="/posts/">Blog Articles</a></li>
+            <li><a href="/about/">About Us</a></li>
+            <li><a href="/contact/">Contact</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <h4 class="lama-footer-heading">Legal</h4>
+          <ul class="lama-footer-list">
+            <li><a href="/privacy-policy/">Privacy Policy</a></li>
+            <li><a href="/terms/">Terms & Conditions</a></li>
+          </ul>
+        </div>
+
+      </div>
+
+    </div>
+
+    <div class="lama-copyright">
+      {{ .Site.Params.copyright | default "© 2026 Tech Pulse. All rights reserved." }}
+    </div>
+
+  </div>
+</footer>

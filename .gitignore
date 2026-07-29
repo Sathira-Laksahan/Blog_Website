@@ -1,0 +1,28 @@
+# Hugo generated output directories
+public/
+resources/_gen/
+.hugo_build.lock
+
+# Executable files that might be created
+*.exe
+*.out
+*.app
+
+# OS generated files
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+
+# Node dependencies (if any)
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Environment variables & local configuration
+.env
+.env.local

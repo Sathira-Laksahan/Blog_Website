@@ -1,0 +1,60 @@
+# -- Site Configuration --
+theme = "blowfish"
+baseURL = "https://yourdomain.com/"
+defaultContentLanguage = "en"
+
+enableRobotsTXT = true
+summaryLength = 140
+
+buildDrafts = false
+buildFuture = false
+
+enableEmoji = true
+
+# Google Analytics 4 (Replace G-XXXXXXXXXX with your actual GA4 Measurement ID)
+# googleAnalytics = "G-XXXXXXXXXX"
+
+[pagination]
+  pagerSize = 9
+
+[imaging]
+  anchor = 'Center'
+
+[taxonomies]
+  tag = "tags"
+  category = "categories"
+  author = "authors"
+  series = "series"
+
+[sitemap]
+  changefreq = 'daily'
+  filename = 'sitemap.xml'
+  priority = 0.8
+
+[outputs]
+  home = ["HTML", "RSS", "JSON"]
+
+[related]
+  threshold = 0
+  toLower = false
+
+    [[related.indices]]
+        name = "tags"
+        weight = 100
+
+    [[related.indices]]
+        name = "categories"
+        weight = 100
+
+    [[related.indices]]
+        name = "series"
+        weight = 50
+
+    [[related.indices]]
+        name = "authors"
+        weight = 20
+
+    [[related.indices]]
+        name = "date"
+        weight = 10
+

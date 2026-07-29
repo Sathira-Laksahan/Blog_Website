@@ -1,0 +1,43 @@
+<!doctype html>
+<html
+  lang="en"
+  class="dark scroll-smooth"
+  data-default-appearance="dark"
+  data-auto-appearance="true">
+  <head>
+    {{- partial "head.html" . -}}
+    <script>
+      // Immediately set dark mode on page load to avoid flash
+      (function() {
+        const appearance = localStorage.getItem('appearance') || 'dark';
+        if (appearance === 'dark' || (!('appearance' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+          document.documentElement.classList.add('dark');
+        } else {
+          document.documentElement.classList.remove('dark');
+        }
+      })();
+    </script>
+  </head>
+
+  <body class="min-h-screen flex flex-col m-0 p-0 text-slate-100 bg-[#0a0f1d] dark:bg-[#0a0f1d] dark:text-slate-100 font-sans antialiased selection:bg-cyan-500 selection:text-black">
+    <div id="the-top" class="sr-only">
+      <a href="#main-content">Skip to main content</a>
+    </div>
+
+    <!-- Header -->
+    {{ partial "header/basic.html" . }}
+
+    <!-- Main Content Area -->
+    <main id="main-content" class="flex-grow w-full py-8" style="min-height: calc(100vh - 380px);">
+      {{ block "main" . }}{{ end }}
+    </main>
+
+    <!-- Footer -->
+    {{ partial "footer.html" . }}
+
+    {{ if site.Params.enableSearch | default false }}
+      {{ partial "search.html" . }}
+    {{ end }}
+
+  </body>
+</html>

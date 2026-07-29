@@ -1,0 +1,67 @@
+{{ define "main" }}
+<div class="lama-container">
+
+  <!-- Header Section -->
+  <div class="cyber-articles-header">
+    <span class="cyber-header-badge">
+      🛡️ Cyber Security & Software Guides
+    </span>
+    <h1 class="cyber-hero-heading">
+      All Articles & Tutorials
+    </h1>
+    <p class="cyber-hero-subtext">
+      Explore pentesting techniques, malware analysis, secure web development, cloud security, and software architecture.
+    </p>
+  </div>
+
+  <!-- Articles Grid (3 Columns) -->
+  <div class="cyber-articles-grid">
+    {{ range .Pages }}
+    <article class="cyber-article-card">
+      
+      <!-- Cover Thumbnail -->
+      <div class="cyber-article-img-wrap">
+        {{ $img := .Resources.GetMatch "featured*" }}
+        {{ if $img }}
+          <img src="{{ $img.RelPermalink }}" alt="{{ .Title }}" class="cyber-article-img" />
+        {{ else }}
+          <img src="/images/hero-bg.jpg" alt="Cover" class="cyber-article-img" />
+        {{ end }}
+      </div>
+
+      <!-- Card Body -->
+      <div class="cyber-article-body">
+        
+        <!-- Meta Badges -->
+        <div class="cyber-article-meta">
+          <span class="cyber-article-badge">
+            {{ range first 1 .Params.categories }}{{ . }}{{ else }}Security{{ end }}
+          </span>
+          <span class="cyber-article-date">{{ .Date.Format "02 Jan 2006" }}</span>
+        </div>
+
+        <!-- Title -->
+        <h3 class="cyber-article-title">
+          <a href="{{ .RelPermalink }}">{{ .Title }}</a>
+        </h3>
+
+        <!-- Excerpt -->
+        <p class="cyber-article-desc">
+          {{ .Summary | plainify }}
+        </p>
+
+        <!-- Read Button -->
+        <div class="cyber-article-action">
+          <a href="{{ .RelPermalink }}" class="cyber-article-btn">
+            Read Article &rarr;
+          </a>
+        </div>
+
+      </div>
+
+    </article>
+    {{ end }}
+  </div>
+
+</div>
+{{ end }}

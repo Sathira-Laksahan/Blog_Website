@@ -1,0 +1,21 @@
+{{ define "main" }}
+<div class="lama-container">
+
+  <div class="cyber-page-header">
+    <span class="cyber-header-badge">🗂️ Browse Topics</span>
+    <h1 class="cyber-page-title">{{ .Title }}</h1>
+    <p class="cyber-page-desc">Explore articles organized by topic. Click any category to browse related posts.</p>
+  </div>
+
+  <div class="cyber-taxonomy-grid">
+    {{ range .Pages }}
+    <a href="{{ .RelPermalink }}" class="cyber-taxonomy-card">
+      <div class="cyber-taxonomy-count">{{ len .Pages }}</div>
+      <h3 class="cyber-taxonomy-name">{{ .Title }}</h3>
+      <span class="cyber-taxonomy-label">{{ len .Pages }} {{ if eq (len .Pages) 1 }}Article{{ else }}Articles{{ end }}</span>
+    </a>
+    {{ end }}
+  </div>
+
+</div>
+{{ end }}

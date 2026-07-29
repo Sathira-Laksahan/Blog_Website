@@ -1,0 +1,117 @@
+# -- Theme Options --
+colorScheme = "blowfish"
+defaultAppearance = "dark" # valid options: light or dark
+autoSwitchAppearance = true
+
+enableA11y = false
+enableSearch = true
+enableCodeCopy = true
+enableStructuredBreadcrumbs = true
+enableStyledScrollbar = true
+
+replyByEmail = false
+mainSections = ["posts"]
+
+disableImageOptimization = false
+disableImageOptimizationMD = false
+disableTextInHeader = false
+
+fingerprintAlgorithm = "sha512"
+
+[seo]
+metaDescriptionOrder = ["summary", "description", "site"]
+
+[header]
+  layout = "fixed-fill-blur" # valid options: basic, fixed, fixed-fill, fixed-gradient, fixed-fill-blur
+
+[footer]
+  showMenu = true
+  showCopyright = true
+  showThemeAttribution = false
+  showAppearanceSwitcher = true
+  showScrollToTop = true
+
+[homepage]
+  layout = "background" # valid options: page, profile, hero, card, background, custom
+  showRecent = true
+  showRecentItems = 6
+  showMoreLink = true
+  showMoreLinkDest = "/posts/"
+  cardView = true
+  cardViewScreenWidth = false
+  layoutBackgroundBlur = true
+
+[article]
+  showDate = true
+  showViews = false
+  showLikes = false
+  showDateOnlyInArticle = false
+  showDateUpdated = true
+  showAuthor = true
+  showHero = true
+  heroStyle = "thumbAndBackground" # valid options: basic, big, background, thumbAndBackground
+  layoutBackgroundBlur = true
+  layoutBackgroundHeaderSpace = true
+  showBreadcrumbs = true
+  showDraftLabel = true
+  showEdit = false
+  showHeadingAnchors = true
+  showPagination = true
+  invertPagination = false
+  showReadingTime = true
+  showTableOfContents = true
+  showRelatedContent = true
+  relatedContentLimit = 3
+  showTaxonomies = true
+  showCategories = true
+  showTags = true
+  showCategoriesInSecondaryColor = true
+  showAuthorsBadges = true
+  showWordCount = true
+  sharingLinks = ["twitter", "linkedin", "facebook", "whatsapp", "telegram"]
+  showZenMode = true
+
+[list]
+  showHero = true
+  heroStyle = "basic"
+  layoutBackgroundBlur = true
+  layoutBackgroundHeaderSpace = true
+  showBreadcrumbs = true
+  showSummary = true
+  showViews = false
+  showLikes = false
+  showTableOfContents = false
+  showCards = true
+  orderByWeight = false
+  groupByYear = false
+  cardView = true
+  cardViewScreenWidth = false
+  constrainItemsWidth = false
+
+[sitemap]
+  excludedKinds = ["taxonomy", "term"]
+
+[taxonomy]
+  showTermCount = true
+  showHero = true
+  heroStyle = "basic"
+  showBreadcrumbs = true
+  cardView = true
+
+[term]
+  showHero = true
+  heroStyle = "basic"
+  showBreadcrumbs = true
+  showTableOfContents = false
+  groupByYear = false
+  cardView = true
+  cardViewScreenWidth = false
+
+[verification]
+  # Google Search Console Verification Meta Tag Code
+  # google = "YOUR_GOOGLE_SEARCH_CONSOLE_VERIFICATION_CODE"
+
+[advertisement]
+  # Google Adsense Publisher Client ID
+  # adsense = "ca-pub-XXXXXXXXXXXXXXXX"
+

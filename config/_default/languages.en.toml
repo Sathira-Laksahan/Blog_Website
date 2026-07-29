@@ -1,0 +1,32 @@
+disabled = false
+locale = "en"
+label = "English"
+weight = 1
+title = "Tech Pulse & Dev Studio"
+
+[params]
+  displayName = "EN"
+  isoCode = "en"
+  rtl = false
+  dateFormat = "2 January 2006"
+  logo = "images/logo.png"
+  secondaryLogo = "images/logo.png"
+  description = "Insights into modern web development, artificial intelligence, cloud architecture, and tech innovations."
+  copyright = "© 2026 Tech Pulse. All rights reserved."
+
+[params.author]
+  name = "Sathira Dev"
+  email = "hello@sathira.dev"
+  image = "images/avatar.jpg"
+  imageQuality = 96
+  headline = "Full-Stack Software Engineer & Tech Blogger"
+  bio = "Passionate about building scalable web applications, sharing developer guides, and exploring cutting-edge AI technologies."
+  links = [
+    { email = "mailto:hello@sathira.dev" },
+    { github = "https://github.com" },
+    { linkedin = "https://linkedin.com" },
+    { twitter = "https://twitter.com" },
+    { x-twitter = "https://x.com" },
+    { youtube = "https://youtube.com" }
+  ]
+

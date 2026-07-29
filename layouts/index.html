@@ -1,0 +1,190 @@
+{{ define "main" }}
+<div class="lama-container">
+
+  <!-- 1. Hero Big Title Section -->
+  <section>
+    <h1 class="lama-hero-title">
+      <b>Hey, Sathira Dev here!</b> Discover my stories and creative ideas.
+    </h1>
+  </section>
+
+  <!-- 2. Split Featured Article Card -->
+  {{ $featured := index (where .Site.RegularPages "Section" "posts") 0 }}
+  {{ with $featured }}
+  <section class="lama-featured-card">
+    <div class="lama-featured-img-wrap">
+      {{ $img := .Resources.GetMatch "featured*" }}
+      {{ if $img }}
+        <img src="{{ $img.RelPermalink }}" alt="{{ .Title }}" class="lama-featured-img" />
+      {{ else }}
+        <img src="/images/hero-bg.jpg" alt="Featured" class="lama-featured-img" />
+      {{ end }}
+    </div>
+    <div class="lama-featured-content">
+      <h2 class="lama-featured-title">
+        <a href="{{ .RelPermalink }}">{{ .Title }}</a>
+      </h2>
+      <p class="lama-featured-desc">
+        {{ .Summary | plainify }}
+      </p>
+      <a href="{{ .RelPermalink }}" class="lama-btn-readmore">Read More</a>
+    </div>
+  </section>
+  {{ end }}
+
+  <!-- 3. Popular Categories Bar -->
+  <section class="lama-categories-section">
+    <h3 class="lama-section-heading">Popular Categories</h3>
+    <div class="lama-categories-grid">
+      
+      <a href="/categories/web-development/" class="lama-cat-pill cat-pink">
+        <span class="lama-cat-icon">💻</span>
+        <span>Web Dev</span>
+      </a>
+
+      <a href="/categories/artificial-intelligence/" class="lama-cat-pill cat-green">
+        <span class="lama-cat-icon">🤖</span>
+        <span>AI & ML</span>
+      </a>
+
+      <a href="/tags/javascript/" class="lama-cat-pill cat-lavender">
+        <span class="lama-cat-icon">⚡</span>
+        <span>Coding</span>
+      </a>
+
+      <a href="/categories/cloud-computing/" class="lama-cat-pill cat-cyan">
+        <span class="lama-cat-icon">☁️</span>
+        <span>Cloud</span>
+      </a>
+
+      <a href="/tags/devops/" class="lama-cat-pill cat-peach">
+        <span class="lama-cat-icon">⚙️</span>
+        <span>DevOps</span>
+      </a>
+
+      <a href="/tags/performance/" class="lama-cat-pill cat-yellow">
+        <span class="lama-cat-icon">🚀</span>
+        <span>Trends</span>
+      </a>
+
+    </div>
+  </section>
+
+  <!-- 4. Main 2-Column Section (Recent Posts + Sidebar) -->
+  <section class="lama-main-grid">
+    
+    <!-- Left Column: Recent Posts Stream -->
+    <div>
+      <h3 class="lama-section-heading">Recent Posts</h3>
+
+      <div class="lama-posts-stream">
+        {{ range (where .Site.RegularPages "Section" "posts") }}
+        <article class="lama-post-card">
+          <div class="lama-post-img-wrap">
+            {{ $img := .Resources.GetMatch "featured*" }}
+            {{ if $img }}
+              <img src="{{ $img.RelPermalink }}" alt="{{ .Title }}" class="lama-post-img" />
+            {{ else }}
+              <img src="/images/hero-bg.jpg" alt="Post" class="lama-post-img" />
+            {{ end }}
+          </div>
+          <div class="lama-post-info">
+            <div class="lama-post-meta">
+              <span>{{ .Date.Format "2006-01-02" }}</span> - <span>{{ range .Params.categories }}{{ . }}{{ end }}</span>
+            </div>
+            <h4 class="lama-post-title">
+              <a href="{{ .RelPermalink }}">{{ .Title }}</a>
+            </h4>
+            <p class="lama-post-desc">
+              {{ .Summary | plainify }}
+            </p>
+            <a href="{{ .RelPermalink }}" class="lama-post-link">Read More</a>
+          </div>
+        </article>
+        {{ end }}
+      </div>
+
+      <!-- Pagination Buttons -->
+      <div class="lama-pagination">
+        <a href="#" class="lama-btn-page disabled">Previous</a>
+        <a href="/posts/" class="lama-btn-page">Next</a>
+      </div>
+
+    </div>
+
+    <!-- Right Column: Sidebar -->
+    <aside class="lama-sidebar">
+      
+      <!-- Section 1: Most Popular -->
+      <div>
+        <span class="lama-sidebar-sub">What's hot</span>
+        <h3 class="lama-sidebar-title">Most Popular</h3>
+        
+        <div class="lama-sidebar-list">
+          {{ range first 3 (where .Site.RegularPages "Section" "posts") }}
+          <div>
+            <span class="lama-sidebar-badge">
+              {{ range first 1 .Params.categories }}{{ . }}{{ end }}
+            </span>
+            <h5 class="lama-sidebar-item-title">
+              <a href="{{ .RelPermalink }}">{{ .Title }}</a>
+            </h5>
+            <div class="lama-sidebar-item-meta">
+              <span>Sathira Dev</span> &middot; <span>{{ .Date.Format "02.01.2006" }}</span>
+            </div>
+          </div>
+          {{ end }}
+        </div>
+      </div>
+
+      <!-- Section 2: Discover by Topic -->
+      <div>
+        <span class="lama-sidebar-sub">Discover by topic</span>
+        <h3 class="lama-sidebar-title">Categories</h3>
+
+        <div class="lama-cat-tags-list">
+          <a href="/categories/web-development/" class="lama-cat-tag tag-style">Style</a>
+          <a href="/categories/web-development/" class="lama-cat-tag tag-fashion">Fashion</a>
+          <a href="/categories/web-development/" class="lama-cat-tag tag-food">Food</a>
+          <a href="/categories/cloud-computing/" class="lama-cat-tag tag-travel">Travel</a>
+          <a href="/categories/artificial-intelligence/" class="lama-cat-tag tag-culture">Culture</a>
+          <a href="/categories/web-development/" class="lama-cat-tag tag-coding">Coding</a>
+        </div>
+      </div>
+
+      <!-- Section 3: Editors Pick -->
+      <div>
+        <span class="lama-sidebar-sub">Chosen by the editor</span>
+        <h3 class="lama-sidebar-title">Editors Pick</h3>
+
+        <div class="lama-sidebar-list">
+          {{ range first 3 (where .Site.RegularPages "Section" "posts") }}
+          <div class="lama-editors-row">
+            {{ $img := .Resources.GetMatch "featured*" }}
+            {{ if $img }}
+              <img src="{{ $img.RelPermalink }}" alt="{{ .Title }}" class="lama-editors-avatar" />
+            {{ else }}
+              <img src="/images/avatar.jpg" alt="Thumb" class="lama-editors-avatar" />
+            {{ end }}
+            <div>
+              <span class="lama-sidebar-badge">
+                {{ range first 1 .Params.categories }}{{ . }}{{ end }}
+              </span>
+              <h5 class="lama-sidebar-item-title" style="margin: 0.15rem 0;">
+                <a href="{{ .RelPermalink }}">{{ .Title }}</a>
+              </h5>
+              <div class="lama-sidebar-item-meta">
+                <span>Sathira Dev</span> &middot; <span>{{ .Date.Format "02.01.2006" }}</span>
+              </div>
+            </div>
+          </div>
+          {{ end }}
+        </div>
+      </div>
+
+    </aside>
+
+  </section>
+
+</div>
+{{ end }}

@@ -1,0 +1,13 @@
+{{ define "main" }}
+<div class="lama-container">
+  <div class="cyber-page-header">
+    <h1 class="cyber-page-title">{{ .Title }}</h1>
+    {{ with .Params.description }}
+    <p class="cyber-page-desc">{{ . }}</p>
+    {{ end }}
+  </div>
+  <div class="cyber-page-body">
+    {{ .Content }}
+  </div>
+</div>
+{{ end }}
